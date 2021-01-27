@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telephony/telephony.dart';
 
 void main() {
   runApp(MyApp());
@@ -65,8 +66,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
+
+//    bool permissionsGranted = await telephony.requestPhoneAndSmsPermissions;
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
