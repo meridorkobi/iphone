@@ -52,6 +52,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  final telephony = Telephony.instance;
 
   void _incrementCounter() {
     setState(() {
@@ -63,6 +64,44 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
       _counter++;
       _counter++;
+      print("BEFORE");
+      print("BEFORE");
+
+      final SmsSendStatusListener listener = (SendStatus status) {
+        if (status == SendStatus.SENT) {
+          print (status);
+          print ("SENT");
+        } else if (status == SendStatus.DELIVERED   ){
+          print (status);
+          print ("DELIVERED");
+        } else {
+          print (status);
+          print ("???");
+        }
+      };
+
+      telephony.sendSms(
+          to: "+972549992670",
+          message: "May the force be with you!",
+          statusListener: listener
+      );
+
+      print("AFTER");
+      print("AFTER");
+
+
+      // message.onStateChanged.listen((state) {
+      //   if (state == SmsMessageState.Sent) {
+      //     print("SMS is sent!");
+      //   } else if (state == SmsMessageState.Delivered) {
+      //     print("SMS is delivered!");
+      //   } else {
+      //     print("SMS ??");
+      //   }
+      // });
+      // sender.sendSms(message);
+      //
+      // );
     });
   }
 
