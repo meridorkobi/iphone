@@ -19,7 +19,7 @@ workflows:
     scripts:
       - cd . && flutter packages pub get
       - find . -name "Podfile" -execdir pod install \;
-      - cd . && flutter build ios --release -t lib/main.dart --no-codesign
+      - cd . && flutter build ios --release -t lib/main.dart
     artifacts:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
