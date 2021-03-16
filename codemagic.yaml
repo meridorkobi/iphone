@@ -18,7 +18,8 @@ workflows:
       cache_paths: []
     scripts:
       - xcode-project use-profiles
-      - flutter build ipa --export-options-plist=/Users/builder/export_options.plist      - cd . && flutter packages pub get
+      - flutter build ipa --export-options-plist=/Users/builder/export_options.plist
+#      - cd . && flutter packages pub get
 #      - find . -name "Podfile" -execdir pod install \;
 #      - cd . && flutter build ios --release -t lib/main.dart
     artifacts:
